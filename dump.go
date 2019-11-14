@@ -69,7 +69,7 @@ UNLOCK TABLES;
 
 // Creates a MYSQL Dump based on the options supplied through the dumper.
 func (d *Dumper) Dump() (string, error) {
-	name := time.Now().Format(d.format)
+	name := d.dbname + "_" + time.Now().Format(d.format)
 	p := path.Join(d.dir, name+".sql")
 
 	// Check dump directory
